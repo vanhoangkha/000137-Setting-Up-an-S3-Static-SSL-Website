@@ -1,0 +1,46 @@
+---
+title : "Clean up"
+date :  "`r Sys.Date()`" 
+weight : 5
+chapter : false
+pre : " <b> 5. </b> "
+---
+1. Empty S3 bucket
+- Run the command: `aws s3 rm s3://BUCKET_NAME --recursive`
+- Replace `BUCKET_NAME` with bucket name to empty: `fcjdmswebstore`, `fcjdmsstore`
+2. Delete CloudFormation stacks
+- Execute the command to delete the AWS SAM application: `sam delete --stack-name fcjdmsapp`
+- Execute the command to empty S3 bucket: `aws s3 rm s3://BUCKET_NAME --recursive`
+- Replace `BUCKET_NAME` with bucket names starting with: **aws-sam-cli-managed-default-samclisourcebucket-**
+- Open [Amazon S3 console](https://ap-southeast-1.console.aws.amazon.com/s3/buckets?region=ap-southeast-1)
+- Selecting the bucket name start with **aws-sam-cli-managed-default-samclisourcebucket-**
+- Click **Show versions**
+- Select the **fcjdmsapp** folder
+- Select all objects
+- Click **Delete**
+- Enter `permanently delete`
+- Click **Delete**
+- Run the command to stack:
+`sam delete --stack-name aws-sam-cli-managed-default`
+3. Delete CloudFront distribution
+- Open [Amazon CloudFront console](https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=ap-southeast-1#/distributions)
+- Select the currently displayed distribution
+- Click **Disable**
+- Click **Disable** again
+- Wait for distribution to be disabled
+- Select distribution again and click **Delete**
+- Click **Delete** again
+4. Delete SSL certificate
+- Open [AWS Certificate Manager console](https://us-east-1.console.aws.amazon.com/acm/home?region=us-east-1#/certificates/list)
+- Select created certificate
+- Click **Delete**
+- Click **Delete** again
+5. Delete Hosted zone
+- Open [Amazon Route 53 console](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones#)
+- Click created hosted zone
+- Select records whose type is different from NS and SOA
+- Click **Delete records**
+- Click **Delete**
+- Click **Delete zone**
+- Enter **delete**
+- Click **Delete**
