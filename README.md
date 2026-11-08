@@ -1,4 +1,4 @@
-# 🌐 S3 Static SSL Website
+# S3 Static SSL Website
 
 Host a static website on S3 with SSL via CloudFront.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series.
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000137-Setting-Up-an-S3-Static-SSL-Website/)**
+**[Start the workshop](https://vanhoangkha.github.io/000137-Setting-Up-an-S3-Static-SSL-Website/)**
 
 ## Prerequisites
 
